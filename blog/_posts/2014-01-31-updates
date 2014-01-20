@@ -1,0 +1,65 @@
+The relese of Julia 0.2 on November 16, 2013 marked the end of an extended stabilisation period during which the trunk
+was closed to riskier changes. Since the 0.2 release, activity on the core of Julia has seen significant developments.
+
+Meanwhile, the Julia package ecosystem continues to grow by leaps and bounds, with a fast-growing group of new
+contributors and exciting package announcements on a weekly basis.
+
+Publications
+------------
+
+* [Dahua Lin's](http://dahua.me/) paper ["Online Learning of Nonparametric Mixture Models via Sequential Variational
+Approximation"](http://dahua.me/papers/dhlin_nips13_sva.pdf) was presented at NIPS 2013. "All algorithms are implemented
+using Julia [2], a new language for high performance technical computing."
+
+Package Activity
+----------------
+
+* [Ben Hamner](https://twitter.com/benhamner) has started a new [Machine Learning](https://github.com/benhamner/MachineLearning.jl) package with the
+goal of ["creating a scikits-learn for Julia, with machine learning algorithms exposed through a consistent API."]
+(https://github.com/JuliaLang/METADATA.jl/pull/529)
+
+* Jake Bolewski created [OpenCL bindings](https://github.com/jakebolewski/OpenCL.jl), and made a nice notebook demonstrating
+[fractal generation in OpenCL](http://nbviewer.ipython.org/gist/jakebolewski/7517923), driven by Julia. Additionally,
+the [CLFFT](https://github.com/jakebolewski/CLFFT.jl) package provides bindings to AMD's clFFT library using OpenCL.jl.
+
+* [Jason Merrill]() created a new package for [https://github.com/jwmerrill/PowerSeries.jl]()
+
+* [LaurenceA]() created [Church.jl](https://github.com/LaurenceA/Church.jl), a new package aiming "to make it easy for anyone
+to perform MCMC inference in complex, and simple, probabilistic models".
+
+* [Avik Sengupta](http://www.sengupta.net/musings/) created [JavaCall](http://aviks.github.io/JavaCall.jl/) to
+call Java from Julia,  and used this to build [Taro.jl](https://github.com/aviks/Taro.jl), a "utility belt of functions
+to work with document files in Julia. It uses Apache Tika and Apache POI (via JavaCall) to process the files."
+
+* [Spencer Russell](http://ssfrr.com/about-2/) created the PortAudio-based [AudioIO](https://github.com/ssfrr/AudioIO.jl), "a Julia library for interfacing to audio
+streams, which include playing to and recording from sound cards, reading and writing audio files, [and] sending to 
+network audio streams."
+
+* The [Gtk](https://github.com/JuliaLang/Gtk.jl) bindings have received significant updates by Jameson Nash, and major new contributions from [Tim Holy](http://holylab.wustl.edu/) and
+[Tobias Knopp](http://num.math.uni-goettingen.de/~knopp/) (including [support for GtkBuilder](https://github.com/JuliaLang/Gtk.jl/pull/39))
+
+* [Helge Eichhorn](http://helgeeichhorn.de/) created the [JPLEphemeris](https://github.com/helgee/JPLEphemeris.jl) package
+to provide "efficient access and routines for the computation of the planet's state vectors directly from Julia" based
+on "JPL Development Ephemerides [...] simulations of the Solar System used for spacecraft navigation
+and astronomical purposes."
+
+Base Activity
+-------------
+
+* [Arch Robison](http://software.intel.com/en-us/user/334537) has [proposed support](https://github.com/JuliaLang/julia/pull/5355))
+for SIMD instructions using LLVM's auto-vectorization and implementing type-based alias analysis for Julia.
+
+* [Static compilation](https://github.com/JuliaLang/julia/pull/4898) is now available for the base system image, reducing
+startup times to well under 1 second.
+
+* [Tuple performance](https://github.com/JuliaLang/julia/pull/4042) has been improved by register or stack allocation
+whenever possible, instead of allocating on the heap.
+
+* LLVM's [MCJIT is now used]() by default on the trunk. MCJIT provides several advantages over the "legacy JIT", most
+importantly continuity as the previous JIT is scheduled to be removed in LLVM 3.5. MCJIT opens the possibility of
+[porting to ARM](https://github.com/JuliaLang/julia/issues/3134) and  provides a path toward full debugger support.
+
+* Local [Shared Memory array](https://github.com/JuliaLang/julia/pull/5380) support for Linux/OS X was merged into
+trunk.
+
+* Julia can now be [compiled using Microsoft Visual C++](https://github.com/JuliaLang/julia/issues/5347)
